@@ -32,6 +32,9 @@ module.exports = new Confidence.Store({
             }
         },
         {
+            plugin: './plugins/swagger'
+        },
+        {
             plugin: {
                 register: 'schwifty',
                 options: {
