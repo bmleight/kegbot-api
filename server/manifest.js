@@ -21,7 +21,13 @@ module.exports = new Confidence.Store({
     connections: [
         {
             host: '0.0.0.0',
-            port: Hoek.reach(process.env, 'PORT', { default: 3000 })
+            port: Hoek.reach(process.env, 'PORT', { default: 3000 }),
+            routes: {
+                cors: {
+                    origin: ['http://0.0.0.0:3000']
+                }
+            }
+
         }
     ],
     registrations: [
@@ -30,6 +36,9 @@ module.exports = new Confidence.Store({
                 register: '../lib', // Main plugin
                 options: {}
             }
+        },
+        {
+            plugin: './plugins/swagger'
         },
         {
             plugin: {
